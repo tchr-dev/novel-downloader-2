@@ -1,0 +1,44 @@
+{
+    "base_url_regex":"https://[-a-zA-Z0-9@:%._\\+~#=]{1,256}",
+    "defaults":{
+        "rulate":{
+            "url":"https://tl.rulate.ru",
+            "key":"rulate"
+
+        },
+        "lightnovelreader":{
+            "url":"https://lightnovelreader.org",
+            "key":"lightnovelreader"
+        }
+    },
+    "rulate":{
+        "site_description": "rulate",
+        "site_name_regex": "https://tl.rulate.ru",
+        "authors_evaluation_expression": "soup.find('strong', text='Автор:').next_sibling.next_sibling.text",
+        "novel_name_evaluation_expression": "",
+
+
+        "chapter_link_search_tag": "a",
+        "chapter_text_search_tag": "div",
+        "chapter_text_search_class": "content-text",
+        "chapter_link_attr": "href",
+        "chapter_link_regex": "/book/\\d*/\\d*/ready_new",
+        "remove_tag_list": ["div", "center"],
+        "remove_class_list": "display-hide",
+        "chapter_name_tag_headers": ["h1", "h2", "h3"]
+    },
+    "lightnovelreader":{
+        "site_description": "lightnovelreader",
+        "site_name_regex": "https://lightnovelreader.org",
+        "authors_regex": "^/author/\\S*",
+        "chapter_link_search_tag": "a",
+        "chapter_text_search_tag": "div",
+        "chapter_text_search_class": "content-text",
+        "chapter_link_attr": "href",
+        "chapter_link_regex": "/book/\\d*/\\d*/ready_new",
+        "remove_tag_list": ["div", "center"],
+        "remove_class_list": "display-hide",
+        "chapter_name_tag_headers": ["h1", "h2", "h3"]
+    }
+
+}
