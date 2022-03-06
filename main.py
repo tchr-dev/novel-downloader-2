@@ -1,6 +1,6 @@
 import argparse
 from distutils.log import debug  # pragma: no cover
-from dwnldr import get_config, get_authors, get_novel_name
+from dwnldr import get_config, get_authors, get_novel_name, get_chapters_list, get_chapters_text
 import json
 
 
@@ -36,7 +36,12 @@ def main() -> None:  # pragma: no cover
         config = get_config(url)
         authors = get_authors(url, config)
         novel_name = get_novel_name(url, config)
+        links = get_chapters_list(url, config)
+        text = get_chapters_text(config, links)
         print(authors)
+        print(novel_name)
+        # print(links)
+        print(text)
 
     print(f"-" * 10 + "END" + f"-" * 10)
 
