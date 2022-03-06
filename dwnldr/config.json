@@ -11,10 +11,16 @@
             "key":"lightnovelreader"
         }
     },
-    "rulate":{
+    "rulate": {
         "site_description": "rulate",
         "site_name_regex": "https://tl.rulate.ru",
         "authors_evaluation_expression": "soup.find('strong', text='Автор:').next_sibling.next_sibling.text",
+        "chapter_name_evaluation_expression": "str(soup.find(\"h1\"))",
+        "chapter_text_evaluation_expression": "str(soup.find(\"div\", class_=\"content-text\"))",
+        "remove_tag_list": [],
+        "remove_class_list": "",
+        "remove_regex_with_tag_list": [{"tag": "p", "regex": "http://tl.rulate.ru"}],
+
         "novel_name_evaluation_expression": "soup.find(\"h1\").text",
         "chapter_link_regex": "/book/\\d*/\\d*/ready_new",
 
@@ -23,8 +29,7 @@
         "chapter_text_search_class": "content-text",
         "chapter_link_attr": "href",
 
-        "remove_tag_list": ["div", "center"],
-        "remove_class_list": "display-hide",
+
         "chapter_name_tag_headers": ["h1", "h2", "h3"]
     },
     "lightnovelreader":{

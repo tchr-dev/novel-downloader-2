@@ -1,16 +1,17 @@
 import requests
 from bs4 import BeautifulSoup
+from .clear_chapter_tags import clear_chapter_tags
 
 
-def get_chapters_text(config, chapter_list) -> str:
+def get_chapters_text(chapter_url, config) -> str:
     """
     """
-    url = chapter_list[1]
-    # print(chapter_list[1])
-    page = requests.get(url)
+    page = requests.get(chapter_url)
     soup = BeautifulSoup(page.content, "lxml")
 
-    chapter_header = str(soup.find("h1"))
-    chapter_text = str(soup.find("div", class_="content-text"))
+    clear_chapter_tags(soup, config)
+
+    chapter_header = eval(config["chapter_name_evaluation_expression"])
+    chapter_text = eval(config["chapter_text_evaluation_expression"])
 
     return chapter_header + "\n" + chapter_text
