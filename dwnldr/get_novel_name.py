@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 
 def get_novel_name(url, config) -> str:
     page = requests.get(url)
-    soup = BeautifulSoup(page.content, "lxml")
+    soup = BeautifulSoup(page.content, "html.parser")
 
     novel_name = eval(config["novel_name_evaluation_expression"])
 

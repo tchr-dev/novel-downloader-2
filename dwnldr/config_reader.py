@@ -13,7 +13,7 @@ def get_config(url) -> dict:
     with open(BASE_PATH+"/config.json") as json_data_file:
         data = json.load(json_data_file)
 
-    # retriev all supported keys
+    # retrieve all supported keys
 
     default = data["defaults"]
     base_url_regex = data["base_url_regex"]
@@ -27,7 +27,7 @@ def get_config(url) -> dict:
         if default[k]["url"] == found_url:
             key = default[k]["key"]
             return data[key]
-        else:
-            sys.exit(f"Key {key} not found!")
+    if key == "":
+        sys.exit(f"Key {key} not found!")
 
 

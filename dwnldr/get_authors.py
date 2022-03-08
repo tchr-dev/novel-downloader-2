@@ -4,9 +4,11 @@ from bs4 import BeautifulSoup
 
 def get_authors(url, config) -> []:
     page = requests.get(url)
-    soup = BeautifulSoup(page.content, "lxml")
+    soup = BeautifulSoup(page.content, "html.parser")
+    authors=[]
 
-    expr = config["authors_evaluation_expression"]
-    author = eval(expr)
+    # authors = [eval(expr) for expr in config["authors_evaluation_expression"]]
+    for expr in config["authors_evaluation_expression"]:
+        authors.extend([eval(expr)])
 
-    return [author]
+    return authors

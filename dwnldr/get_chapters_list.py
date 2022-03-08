@@ -5,10 +5,11 @@ import re
 
 def get_chapters_list(url, config) -> []:
     page = requests.get(url)
-    soup = BeautifulSoup(page.content, "lxml")
+    soup = BeautifulSoup(page.content, "html.parser")
     site_url = config["site_name_regex"]
 
-    data = soup.find_all("a", {"href": re.compile(config[r"chapter_link_regex"])})
-    links = list(dict.fromkeys([site_url+item["href"] for item in data]))
+    data = eval(config["chapter_links_evaluation_expression"])
+    # links = list(dict.fromkeys([site_url+item["href"] for item in data]))
+    links = list(dict.fromkeys(el for el in data))
 
     return links

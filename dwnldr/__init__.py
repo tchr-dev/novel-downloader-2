@@ -5,6 +5,7 @@ from .get_novel_name import get_novel_name
 from .get_chapters_list import get_chapters_list
 from .get_chapters_text import get_chapters_text
 from .clear_chapter_tags import clear_chapter_tags
+from .create_html_book import create_html_book
 
 __all__ = [
     "get_config",
@@ -12,5 +13,6 @@ __all__ = [
     "get_novel_name",
     "get_chapters_list",
     "get_chapters_text",
-    "clear_chapter_tags"
+    "clear_chapter_tags",
+    "create_html_book"
 ]
