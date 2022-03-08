@@ -62,7 +62,7 @@ def main() -> None:  # pragma: no cover
         links = get_chapters_list(links_url, config)
         # text = get_chapters_text(links[1], config)
         print(authors)
-        # print(novel_name)
+        print(novel_name)
         # print(links)
         # print("Links: ", links[1])
         # print("Text: ", text)

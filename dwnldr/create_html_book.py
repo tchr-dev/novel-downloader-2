@@ -28,7 +28,8 @@ def create_html_book(authors, novel_name, links, config):
         </html>
         """
 
-    with open(novel_name, "a") as output_html:
+    book_name = novel_name + '.html'
+    with open(book_name, "w") as output_html:
         output_html.writelines(html_boilerplate_start)
 
         if len(links) > 0:

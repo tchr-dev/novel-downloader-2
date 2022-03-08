@@ -22,15 +22,8 @@
         "remove_regex_with_tag_list": [{"tag": "p", "regex": "http://tl.rulate.ru"}],
 
         "novel_name_evaluation_expression": "soup.find(\"h1\").text",
-        "chapter_link_regex": "/book/\\d*/\\d*/ready_new",
+        "chapter_link_regex": "/book/\\d*/\\d*/ready_new"
 
-        "chapter_link_search_tag": "a",
-        "chapter_text_search_tag": "div",
-        "chapter_text_search_class": "content-text",
-        "chapter_link_attr": "href",
-
-
-        "chapter_name_tag_headers": ["h1", "h2", "h3"]
     },
     "lightnovelreader":{
         "site_description": "lightnovelreader",
@@ -40,21 +33,20 @@
             "str.strip(soup.find(\"dt\", text=\"Artist(s):\").find_next_sibling().text)"
         ],
         "novel_name_evaluation_expression": "soup.find(\"h1\").text",
+        "chapter_header_regex": "chapter-\\d+[-?]{0,1}[\\d+]{0,1}",
         "chapter_link_regex": "https://[-a-zA-Z0-9@:%._\\+~#=]{1,256}/[-a-zA-Z0-9@:%._\\+~#=]{1,256}/chapter[-0-9.]{1,10}",
         "chapter_links_evaluation_expression": "[el[\"value\"] for el in soup.find_all(\"option\", {\"value\": re.compile(config[\"chapter_link_regex\"])})]",
         "no_chapter_name_from_text": false,
         "chapter_name_evaluation_expression": "str(soup.find(\"p\", text = re.compile(\"[Cc].apter\\s*\\d*\\s.\\s[a-zA-Z\\s]{1,50}\")))",
         "chapter_text_evaluation_expression": "soup.find(\"article\", id=\"chapterText\")",
-        "remove_regex_with_tag_list": [{"tag": "p", "regex": "http://tl.rulate.ru"}],
+        "remove_regex_with_tag_list": [
+            {"tag": "p", "regex": "lightnovel"}
 
-        "chapter_link_search_tag": "a",
-        "chapter_text_search_tag": "div",
-        "chapter_text_search_class": "content-text",
-        "chapter_link_attr": "href",
 
+
+        ],
         "remove_tag_list": ["div", "center"],
-        "remove_class_list": "display-hide",
-        "chapter_name_tag_headers": ["h1", "h2", "h3"]
+        "remove_class_list": ["display-hide"]
     }
 
 }

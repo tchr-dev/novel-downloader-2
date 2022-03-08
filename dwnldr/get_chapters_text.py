@@ -11,6 +11,9 @@ def get_chapters_text(chapter_url, config) -> str:
     soup = BeautifulSoup(page.content, "html.parser")
 
     chapter_header = eval(config["chapter_name_evaluation_expression"])
+    if chapter_header == "None" or chapter_header == "":
+        chapter_header = re.search(config["chapter_header_regex"], chapter_url).group(0)
+        chapter_header = f"<H1>{str.capitalize(chapter_header)}</H1>"
     chapter_text = eval(config["chapter_text_evaluation_expression"])
     clear_chapter_tags(chapter_text, config)
 

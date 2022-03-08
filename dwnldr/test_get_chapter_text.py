@@ -1,4 +1,5 @@
 import requests
+import re
 from bs4 import BeautifulSoup
 from clear_chapter_tags import clear_chapter_tags
 from config_reader import get_config
@@ -14,6 +15,9 @@ def get_chapters_text(chapter_url, config) -> str:
     soup = BeautifulSoup(page.content, "html.parser")
 
     chapter_header = eval(config["chapter_name_evaluation_expression"])
+    print(type(chapter_header))
+    if chapter_header == 'None':
+        chapter_header = "<h1>Chapter 5037</h1>"
     print("Chap header: ", chapter_header)
 
     chapter_text = eval(config["chapter_text_evaluation_expression"])
