@@ -40,7 +40,8 @@
         "chapter_name_evaluation_expression": "str(soup.find(\"p\", text = re.compile(\"[Cc].apter\\s*\\d*\\s.\\s[a-zA-Z\\s]{1,50}\")))",
         "chapter_text_evaluation_expression": "soup.find(\"article\", id=\"chapterText\")",
         "remove_regex_with_tag_list": [
-            {"tag": "p", "regex": "lightnovel"}
+            {"tag": "p", "regex": "lightnovel"},
+            {"tag": "p", "regex": "[lightnovelworld/]"}
 
 
 
