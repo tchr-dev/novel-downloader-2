@@ -2,10 +2,13 @@ import re
 from bs4 import BeautifulSoup
 
 
-def clear_chapter_tags(soup, config):
+def clear_chapter_tags(soup, config) -> BeautifulSoup:
     """
 
     """
+    if type(soup) == str:
+        soup = BeautifulSoup(soup, "html.parser")
+
     tag_list = config["remove_tag_list"]
     class_list = config["remove_class_list"]
     regex_list_with_tag = config["remove_regex_with_tag_list"]
@@ -27,3 +30,5 @@ def clear_chapter_tags(soup, config):
             found_tags = soup.find_all(regex_with_tag["tag"], string=re.compile(regex_with_tag["regex"]))
             for el in found_tags:
                 el.decompose()
+
+    return soup

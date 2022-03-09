@@ -15,6 +15,6 @@ def get_chapters_text(chapter_url, config) -> str:
         chapter_header = re.search(config["chapter_header_regex"], chapter_url).group(0)
         chapter_header = f"<H1>{str.capitalize(chapter_header)}</H1>"
     chapter_text = eval(config["chapter_text_evaluation_expression"])
-    clear_chapter_tags(chapter_text, config)
+    chapter_text = clear_chapter_tags(chapter_text, config)
 
-    return chapter_header + "\n" + str(chapter_text)
+    return str(chapter_header) + "\n" + str(chapter_text)

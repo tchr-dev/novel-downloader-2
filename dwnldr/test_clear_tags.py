@@ -25,7 +25,8 @@ txt = "<p>What is the definition of ‘protagonist?’</p> <p>It varies from per
        "<p>The source of this content is lightnovelpub[.]com</p> <p>Let’s think about it.</p> <p>The level of the " \
        "first protagonist " \
        "I hunted was 33.</p> <p>Not to mention his strength, his movements and controls were enough to impress me " \
-       "when I first saw it. "
+       "when I first saw it. " \
+        "<p>http://tl.rulate.ru/book/67591/1812459</p> <p> ksksdjfjsdlfjklds </p>"
 
 soup = BeautifulSoup(txt, "html.parser")
 

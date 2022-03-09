@@ -5,8 +5,11 @@ from dwnldr import get_config, \
     get_novel_name, \
     get_chapters_list, \
     get_chapters_text, \
-    create_html_book
+    create_html_book, \
+    diagnostic
 import json
+# import logging
+# logging.basicConfig(level=logging.INFO, file='downloader.log', format='%(asctime)s :: %(levelname)s :: %(message)s')
 
 
 def main() -> None:  # pragma: no cover
@@ -29,8 +32,8 @@ def main() -> None:  # pragma: no cover
     )
 
     parser.add_argument(
-        "-c",
-        "--config",
+        "-d",
+        "--diagnostic",
         action="store_true"
     )
 
@@ -51,21 +54,13 @@ def main() -> None:  # pragma: no cover
     args = parser.parse_args()
     main_url = args.url
     links_url = args.links_source
+    config = get_config(main_url)
 
     if not args.links_source:
         links_url = main_url
 
-    if args.config:
-        config = get_config(main_url)
-        authors = get_authors(main_url, config)
-        novel_name = get_novel_name(main_url, config)
-        links = get_chapters_list(links_url, config)
-        # text = get_chapters_text(links[1], config)
-        print(authors)
-        print(novel_name)
-        # print(links)
-        # print("Links: ", links[1])
-        # print("Text: ", text)
+    if args.diagnostic:
+        diagnostic(main_url=main_url, config=config, links_url=links_url)
 
     if args.book_html:
         print("Creating book")

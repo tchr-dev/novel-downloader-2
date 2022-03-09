@@ -15,11 +15,12 @@
         "site_description": "rulate",
         "site_name_regex": "https://tl.rulate.ru",
         "authors_evaluation_expression": ["soup.find('strong', text='Автор:').next_sibling.next_sibling.text"],
+        "chapter_links_evaluation_expression": "[el[\"href\"] for el in soup.find_all(\"a\", {\"href\": re.compile(config[\"chapter_link_regex\"])})]",
         "chapter_name_evaluation_expression": "str(soup.find(\"h1\"))",
         "chapter_text_evaluation_expression": "str(soup.find(\"div\", class_=\"content-text\"))",
         "remove_tag_list": [],
         "remove_class_list": "",
-        "remove_regex_with_tag_list": [{"tag": "p", "regex": "http://tl.rulate.ru"}],
+        "remove_regex_with_tag_list": [{"tag": "p", "regex": "http:\/\/[-a-zA-Z0-9@:%._\\\\+~#=]{1,256}"}],
 
         "novel_name_evaluation_expression": "soup.find(\"h1\").text",
         "chapter_link_regex": "/book/\\d*/\\d*/ready_new"
@@ -40,11 +41,8 @@
         "chapter_name_evaluation_expression": "str(soup.find(\"p\", text = re.compile(\"[Cc].apter\\s*\\d*\\s.\\s[a-zA-Z\\s]{1,50}\")))",
         "chapter_text_evaluation_expression": "soup.find(\"article\", id=\"chapterText\")",
         "remove_regex_with_tag_list": [
-            {"tag": "p", "regex": "lightnovel"},
-            {"tag": "p", "regex": "[lightnovelworld/]"}
-
-
-
+            {"tag": "p", "regex": "/*l/*i/*g/*h/*t/*n/*o/*v/*e/*l/*"},
+            {"tag": "p", "regex": "nove\u200Dlpub.com"}
         ],
         "remove_tag_list": ["div", "center"],
         "remove_class_list": ["display-hide"]

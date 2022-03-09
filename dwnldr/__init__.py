@@ -6,6 +6,7 @@ from .get_chapters_list import get_chapters_list
 from .get_chapters_text import get_chapters_text
 from .clear_chapter_tags import clear_chapter_tags
 from .create_html_book import create_html_book
+from .diagnostic import diagnostic
 
 __all__ = [
     "get_config",
@@ -14,5 +15,6 @@ __all__ = [
     "get_chapters_list",
     "get_chapters_text",
     "clear_chapter_tags",
-    "create_html_book"
+    "create_html_book",
+    "diagnostic"
 ]

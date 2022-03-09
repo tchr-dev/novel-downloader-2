@@ -16,7 +16,7 @@ def create_html_book(authors, novel_name, links, config):
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <meta http-equiv="X-UA-Compatible" content="ie=edge">
-            <meta name="author" content="{[", ".join(author) for author in authors]}">
+            <meta name="author" content="{", ".join(authors)}">
             <title>{novel_name}</title>
             <link rel="stylesheet" href="style.css">
         </head>
@@ -28,7 +28,9 @@ def create_html_book(authors, novel_name, links, config):
         </html>
         """
 
+    novel_name = re.sub(r'[^a-zA-Zа-яА-Я0-9 \n\.]', '', novel_name)
     book_name = novel_name + '.html'
+
     with open(book_name, "w") as output_html:
         output_html.writelines(html_boilerplate_start)
 
